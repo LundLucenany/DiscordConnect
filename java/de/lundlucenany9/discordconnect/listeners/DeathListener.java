@@ -12,6 +12,6 @@ public class DeathListener implements Listener {
     @EventHandler
     public void onDeath(PlayerDeathEvent e){
         if(!DiscordConnect.sendDeathMessages) return;
-        Utils.sendEmbed(DiscordConnect.dChannel, "Server", e.getDeathMessage(), Color.YELLOW);
+        Utils.sendEmbed(DiscordConnect.dChannel, "Server", e.getDeathMessage(), Color.RED);
     }
 }

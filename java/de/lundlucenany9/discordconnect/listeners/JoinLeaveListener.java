@@ -18,6 +18,6 @@ public class JoinLeaveListener implements Listener {
     @EventHandler
     public void onLeave(PlayerQuitEvent e){
         if(!DiscordConnect.sendJoinLeaveMessage) return;
-        Utils.sendEmbed(DiscordConnect.dChannel, "Server", e.getPlayer().getDisplayName() + " ist dem Server beigetreten.", Color.yellow);
+        Utils.sendEmbed(DiscordConnect.dChannel, "Server", e.getPlayer().getDisplayName() + " hat den Server verlassen.", Color.yellow);
     }
 }
