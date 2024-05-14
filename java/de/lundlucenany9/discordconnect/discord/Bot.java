@@ -1,7 +1,9 @@
 package de.lundlucenany9.discordconnect.discord;
 
+import de.lundlucenany9.discordconnect.DiscordConnect;
 import de.lundlucenany9.discordconnect.discord.listeners.ChatEvent;
 import de.lundlucenany9.discordconnect.discord.listeners.WhitelistEvent;
+import de.lundlucenany9.discordconnect.discord.utils.Utils;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.entities.Guild;
@@ -10,6 +12,7 @@ import net.dv8tion.jda.api.entities.Role;
 import net.dv8tion.jda.api.entities.channel.concrete.TextChannel;
 import net.dv8tion.jda.api.requests.GatewayIntent;
 
+import java.awt.*;
 import java.util.ArrayList;
 
 public class Bot {
@@ -26,6 +29,7 @@ public class Bot {
 
         jda.addEventListener(new ChatEvent());
         jda.addEventListener(new WhitelistEvent());
+        Utils.sendEmbed(DiscordConnect.dChannel, "Server", "Der Server ist gestartet worden.", Color.BLUE);
     }
 
     public static TextChannel getChannel(String name) {

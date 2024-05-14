@@ -3,12 +3,14 @@ package de.lundlucenany9.discordconnect;
 import de.lundlucenany9.discordconnect.commands.DiscordCommand;
 import de.lundlucenany9.discordconnect.commands.SharedChatCommand;
 import de.lundlucenany9.discordconnect.discord.Bot;
+import de.lundlucenany9.discordconnect.discord.utils.Utils;
 import de.lundlucenany9.discordconnect.listeners.ChatListener;
 import de.lundlucenany9.discordconnect.listeners.DeathListener;
 import de.lundlucenany9.discordconnect.listeners.JoinLeaveListener;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.awt.*;
 import java.util.Objects;
 
 public final class DiscordConnect extends JavaPlugin {
@@ -62,7 +64,7 @@ public final class DiscordConnect extends JavaPlugin {
 
     @Override
     public void onDisable() {
-        // Plugin shutdown logic
+        Utils.sendEmbed(DiscordConnect.dChannel, "Server", "Der Server ist geschlossen worden.", Color.BLUE);
     }
 }
 

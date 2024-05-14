@@ -25,7 +25,7 @@ public class Utils {
     }
 
     public static void kickMember(@NotNull String id) {
-        dGuild.kick(UserSnowflake.fromId(id));
+        dGuild.kick(UserSnowflake.fromId(id)).queue();
     }
 
     public static void banMember(String id) {
@@ -37,17 +37,17 @@ public class Utils {
     }
 
     public static void addRole(String id, Role role) {
-        dGuild.addRoleToMember(UserSnowflake.fromId(id), role);
+        dGuild.addRoleToMember(UserSnowflake.fromId(id), role).queue();
     }
 
     public static void removeRole(String id, Role role) {
-        dGuild.removeRoleFromMember(UserSnowflake.fromId(id), role);
+        dGuild.removeRoleFromMember(UserSnowflake.fromId(id), role).queue();
     }
     public static void sendEmbed(String cId, String author, String msg, Color color){
         EmbedBuilder eb = new EmbedBuilder();
         eb.setColor(color);
         eb.setAuthor(author);
         eb.addField("", msg, false);
-        dGuild.getTextChannelById(cId).sendMessageEmbeds(eb.build());
+        dGuild.getTextChannelById(cId).sendMessageEmbeds(eb.build()).queue();
     }
 }
