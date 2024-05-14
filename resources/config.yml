@@ -4,5 +4,6 @@ discordMainChannelID: ""
 discordWhitelistChannelID: ""
 whitelistChannel: false
 connectedChat: true
+sendJoinLeaveMessage: true
 messages:
   noPermission: "You don't have permission to execute this command!"

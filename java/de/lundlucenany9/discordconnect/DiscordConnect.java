@@ -17,6 +17,7 @@ public final class DiscordConnect extends JavaPlugin {
     public static String dWhitelistC;
     public static boolean dWhitelist;
     public static boolean dConnect;
+    public static boolean sendJoinLeaveMessage;
     public static DiscordConnect plugin;
 
     public static String mNoPermission;
@@ -31,6 +32,7 @@ public final class DiscordConnect extends JavaPlugin {
         dWhitelistC = getConfig().getString("discordWhitelistChannelID");
         dWhitelist = getConfig().getBoolean("whitelistChannel");
         dConnect = getConfig().getBoolean("connectedChat");
+        sendJoinLeaveMessage = getConfig().getBoolean("sendJoinLeaveMessage");
         if (Objects.equals(dServer, "") || Objects.equals(dChannel, "") || Objects.equals(botId, "") || (dWhitelist == true && Objects.equals(dWhitelistC, ""))) {
             this.getLogger().warning("You must first configure the config file!");
             return;
