@@ -1,0 +1,8 @@
+botId: ""
+discordServerId: ""
+discordMainChannelID: ""
+discordWhitelistChannelID: ""
+whitelistChannel: false
+connectedChat: true
+messages:
+  noPermission: "You don't have permission to execute this command!"

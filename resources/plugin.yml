@@ -1,0 +1,50 @@
+name: DiscordConnect
+version: '${version}'
+main: de.lundlucenany9.discordconnect.DiscordConnect
+api-version: '1.20'
+commands:
+  discord:
+    permission: discordconnect.discord
+    usage: discord
+    description: A command by DiscordConnect
+  sharedchat:
+    permission: discordconnect.sharedchat
+    aliases:
+      - schat
+    usage: /sharedchat [enable|disable]
+    description: A command by DiscordConnect
+permissions:
+  discordconnect.discord:
+    default: op
+    children:
+      discordconnect.discord.channel: true
+      discordconnect.discord.member: true
+  discordconnect.discord.channel:
+    default: op
+    children:
+      discordconnect.discord.channel.create: true
+      discordconnect.discord.channel.send: true
+  discordconnect.discord.channel.create:
+    default: op
+  discordconnect.discord.channel.send:
+    default: op
+  discordconnect.discord.member:
+    default: op
+    children:
+      discordconnect.discord.member.mute: true
+      discordconnect.discord.member.kick: true
+      discordconnect.discord.member.ban: true
+      discordconnect.discord.member.timeout: true
+      discordconnect.discord.member.role: true
+  discordconnect.discord.member.mute:
+    default: op
+  discordconnect.discord.member.kick:
+    default: op
+  discordconnect.discord.member.ban:
+    default: op
+  discordconnect.discord.member.timeout:
+    default: op
+  discordconnect.discord.member.role:
+    default: op
+  discordconnect.sharedchat:
+    default: op
