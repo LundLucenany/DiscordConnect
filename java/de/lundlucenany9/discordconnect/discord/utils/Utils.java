@@ -1,9 +1,11 @@
 package de.lundlucenany9.discordconnect.discord.utils;
 
+import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.Role;
 import net.dv8tion.jda.api.entities.UserSnowflake;
 import org.jetbrains.annotations.NotNull;
 
+import java.awt.*;
 import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
@@ -40,5 +42,12 @@ public class Utils {
 
     public static void removeRole(String id, Role role) {
         dGuild.removeRoleFromMember(UserSnowflake.fromId(id), role);
+    }
+    public static void sendEmbed(String cId, String author, String msg, Color color){
+        EmbedBuilder eb = new EmbedBuilder();
+        eb.setColor(color);
+        eb.setAuthor(author);
+        eb.addField("", msg, false);
+        dGuild.getTextChannelById(cId).sendMessageEmbeds(eb.build());
     }
 }

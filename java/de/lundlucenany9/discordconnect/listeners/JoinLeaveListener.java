@@ -7,15 +7,17 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 
+import java.awt.*;
+
 public class JoinLeaveListener implements Listener {
     @EventHandler
     public void onJoin(PlayerJoinEvent e){
         if(!DiscordConnect.sendJoinLeaveMessage) return;
-        Utils.sendMessage(DiscordConnect.dChannel, e.getJoinMessage());
+        Utils.sendEmbed(DiscordConnect.dChannel, "Server", e.getJoinMessage(), Color.green);
     }
     @EventHandler
     public void onLeave(PlayerQuitEvent e){
         if(!DiscordConnect.sendJoinLeaveMessage) return;
-        Utils.sendMessage(DiscordConnect.dChannel, e.getQuitMessage());
+        Utils.sendEmbed(DiscordConnect.dChannel, "Server", e.getQuitMessage(), Color.yellow);
     }
 }

@@ -4,6 +4,8 @@ import de.lundlucenany9.discordconnect.commands.DiscordCommand;
 import de.lundlucenany9.discordconnect.commands.SharedChatCommand;
 import de.lundlucenany9.discordconnect.discord.Bot;
 import de.lundlucenany9.discordconnect.listeners.ChatListener;
+import de.lundlucenany9.discordconnect.listeners.DeathListener;
+import de.lundlucenany9.discordconnect.listeners.JoinLeaveListener;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -18,6 +20,7 @@ public final class DiscordConnect extends JavaPlugin {
     public static boolean dWhitelist;
     public static boolean dConnect;
     public static boolean sendJoinLeaveMessage;
+    public static boolean sendDeathMessages;
     public static DiscordConnect plugin;
 
     public static String mNoPermission;
@@ -33,6 +36,7 @@ public final class DiscordConnect extends JavaPlugin {
         dWhitelist = getConfig().getBoolean("whitelistChannel");
         dConnect = getConfig().getBoolean("connectedChat");
         sendJoinLeaveMessage = getConfig().getBoolean("sendJoinLeaveMessage");
+        sendDeathMessages = getConfig().getBoolean("sendDeathMessages");
         if (Objects.equals(dServer, "") || Objects.equals(dChannel, "") || Objects.equals(botId, "") || (dWhitelist && Objects.equals(dWhitelistC, ""))) {
             this.getLogger().warning("You must first configure the config file!");
             return;
@@ -47,6 +51,8 @@ public final class DiscordConnect extends JavaPlugin {
 
         PluginManager manager = this.getServer().getPluginManager();
         manager.registerEvents(new ChatListener(), this);
+        manager.registerEvents(new JoinLeaveListener(), this);
+        manager.registerEvents(new DeathListener(), this);
 
         getCommand("discord").setExecutor(new DiscordCommand());
         getCommand("discord").setTabCompleter(new DiscordCommand());
