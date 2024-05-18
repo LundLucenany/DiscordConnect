@@ -8,3 +8,5 @@ sendJoinLeaveMessage: true
 sendDeathMessages: false
 messages:
   noPermission: "You don't have permission to execute this command!"
+  sharedChatEnable: "Shared chat was enabled."
+  sharedChatDisable: "Shared chat was disabled."

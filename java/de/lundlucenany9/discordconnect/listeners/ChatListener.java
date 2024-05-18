@@ -11,6 +11,6 @@ public class ChatListener implements Listener {
     @EventHandler
     public void onChat(AsyncPlayerChatEvent e) {
         if (!DiscordConnect.dConnect) return;
-        Utils.sendMessage(DiscordConnect.dChannel, "<" + e.getPlayer().getDisplayName() + "> " + e.getMessage());
+        Utils.sendMessage(DiscordConnect.dChannel, e.getPlayer().getDisplayName() + e.getMessage());
     }
 }

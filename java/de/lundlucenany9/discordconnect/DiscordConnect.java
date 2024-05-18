@@ -26,6 +26,8 @@ public final class DiscordConnect extends JavaPlugin {
     public static DiscordConnect plugin;
 
     public static String mNoPermission;
+    public static String mSharedChatEnable;
+    public static String mSharedChatDisable;
 
     @Override
     public void onEnable() {
@@ -50,6 +52,8 @@ public final class DiscordConnect extends JavaPlugin {
         }
 
         mNoPermission = getConfig().getString("noPermission");
+        mSharedChatEnable = getConfig().getString("sharedChatEnable");
+        mSharedChatDisable = getConfig().getString("sharedChatDisable");
 
         PluginManager manager = this.getServer().getPluginManager();
         manager.registerEvents(new ChatListener(), this);

@@ -1,6 +1,8 @@
 package de.lundlucenany9.discordconnect.commands;
 
 import de.lundlucenany9.discordconnect.DiscordConnect;
+import de.lundlucenany9.discordconnect.discord.utils.Utils;
+import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -8,6 +10,7 @@ import org.bukkit.command.TabCompleter;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,12 +23,14 @@ public class SharedChatCommand implements CommandExecutor, TabCompleter {
         }
         if (args[0].equals("enable")) {
             DiscordConnect.dConnect = true;
-            sender.sendMessage("Der geteilte Chat wurde aktiviert.");
+            Bukkit.broadcastMessage(DiscordConnect.mSharedChatEnable);
+            Utils.sendEmbed(DiscordConnect.dChannel, "Server", DiscordConnect.mSharedChatEnable, Color.MAGENTA);
             return true;
         }
         if (args[0].equals("disable")) {
             DiscordConnect.dConnect = false;
-            sender.sendMessage("Der geteilte Chat wurde deaktiviert.");
+            Bukkit.broadcastMessage(DiscordConnect.mSharedChatDisable);
+            Utils.sendEmbed(DiscordConnect.dChannel, "Server", DiscordConnect.mSharedChatDisable, Color.MAGENTA);
             return true;
         }
         return false;
